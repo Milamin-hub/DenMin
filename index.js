@@ -1,7 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 //const Post = require("./Post")
-//import express from "express"
+import express from "express"
 
 const PORT = 3000
 
@@ -12,8 +12,8 @@ app.use(express.json())
 
 
 app.post("/", async (req, res) => {
-    //const{author, title} = req.body
-    const post = await Post.create({})
+    const{author, title} = req.body
+    const post = await Post.create({author, title})
     res.status(200).json("server working..." + post)
 })
 
